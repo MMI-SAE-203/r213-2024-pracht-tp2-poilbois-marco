@@ -1,8 +1,8 @@
 <script setup lang="ts">
-    import type { MaisonRecord } from '@/pocketbase-types'
-    import ImgPb from './ImgPb.vue'
+  import type { MaisonRecord } from '@/pocketbase-types'
+  import ImgPb from './ImgPb.vue'
 
-const props = defineProps<MaisonRecord<any>>()
+  const props = defineProps<MaisonRecord<any>>()
 </script>
 
 <template>
