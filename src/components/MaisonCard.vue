@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import type { MaisonRecord } from '@/pocketbase-types'
+  import type { MaisonResponse } from '@/pocketbase-types'
   import ImgPb from './ImgPb.vue'
 
-  const props = defineProps<MaisonRecord<any>>()
+  const props = defineProps<MaisonResponse<any>>()
 </script>
 
 <template>
@@ -46,7 +46,7 @@
           width="48"
           height="48"
           viewBox="0 0 48 48"
-          fill="none"
+          :fill="favori?'red':'none'"
           xmlns="http://www.w3.org/2000/svg"
           class="flex-grow-0 flex-shrink-0 w-12 h-12"
           preserveAspectRatio="xMidYMid meet"

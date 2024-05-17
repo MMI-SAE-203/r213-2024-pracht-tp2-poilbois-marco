@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MaisonRecord } from '@/pocketbase-types';
+import type { MaisonResponse } from '@/pocketbase-types';
 import MaisonCard from '@/components/MaisonCard.vue';
 
 import { allMaisonsFavori } from '@/backend';
