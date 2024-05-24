@@ -19,11 +19,15 @@ export async function oneID(id: string) {
 }
 
 //fonction qui retourne les maisons qui sont en favori
+// export async function allMaisonsFavori() {
+//     const favoriRecords = await pb.collection('maison').getFullList({
+//         filter: 'favori = true',
+//     });
+//     return favoriRecords;
+// }
 export async function allMaisonsFavori() {
-    const favoriRecords = await pb.collection('maison').getFullList({
-        filter: 'favori = true',
-    });
-    return favoriRecords;
+  const Favrecord = await pb.collection('maison').getFullList({ filter: 'favori = true' });
+  return Favrecord;
 }
 
 //fonction qui retourne toutes les maisons triées par ordre croissant de leur prix
