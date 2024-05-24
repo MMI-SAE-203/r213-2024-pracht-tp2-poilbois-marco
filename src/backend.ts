@@ -13,7 +13,7 @@ export async function allMaisons() {
 
 //fonction qui retourne une seule maison par son id en paramètre
 //PS : je ne vois vraiment pas comment afficher une seule maison avec un getFullList
-export async function oneID(id) {
+export async function oneID(id: string) {
     const oneRecord = await pb.collection('maison').getOne(id);
     return oneRecord;
 }
@@ -35,7 +35,7 @@ export async function allMaisonsSorted() {
 }
 
 //fonction qui retourne les maisons ayant une superficie supérieure à la valeur de la surface passée en paramètre
-export async function bySurface(s) {
+export async function bySurface(s:number) {
     const surfaceRecords = await pb.collection('maison').getFullList({
         filter: `surface > ${s}`,
     });
@@ -43,7 +43,7 @@ export async function bySurface(s) {
 }
 
 //fonction qui prend en paramètre une surface et un prix selon la valeur d'une superficie supérieure à la surface passée en paramètre ou la surface inférieure au prix passé en paramètre
-export async function surfaceORprice(s, p) {
+export async function surfaceORprice(s: number, p: number) {
     const surfaceORpriceRecords = await pb.collection('maison').getFullList({
         filter: `surface > ${s} || prix < ${p}`,
     });
@@ -52,10 +52,24 @@ export async function surfaceORprice(s, p) {
 
 //fonction qui affiche les données de l'agence qui a l'id passé en paramètre
 //PS : je ne sais pas si cette fonction peut s'exécuter de votre côté mais je ne vois vraiment pas où pourrait se situer l'erreur
-export async function allAgenceMaisonbyId(id) {
-    const sortedRecordsAgence = await pb.collection('maison').getFullList({
-        filter: `agence.id = ${id}`,
-        expand: 'agence',
+// export async function allAgenceMaisonbyId(id) {
+//     const sortedRecordsAgence = await pb.collection('maison').getFullList({
+//         filter: `agence.id = ${id}`,
+//         expand: 'agence',
+//      });
+//      return sortedRecordsAgence;
+// }
+
+export async function allAgencesSorted() {
+  const sortedAgenceRecords = await pb.collection('agence').getFullList({
+    sort: 'nom'
+  })
+  return sortedAgenceRecords
+}
+
+export async function allAgenceMaisonbyId(id: string) {
+    const sortedRecordsAgence = await pb.collection('maison').getOne(id,{
+        expand: 'maison(agence)',
      });
      return sortedRecordsAgence;
 }

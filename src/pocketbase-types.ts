@@ -36,10 +36,9 @@ export type AuthSystemFields<T = never> = {
 // Record types for each collection
 
 export type AgenceRecord = {
-	adresse?: string
+	email?: string
 	nom?: string
 	prenom?: string
-	telephone?: number
 }
 
 export type MaisonRecord = {
