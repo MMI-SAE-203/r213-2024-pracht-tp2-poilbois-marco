@@ -7,11 +7,11 @@
   const route = useRoute('/agents/[id]')
   console.log('id :', route.params.id)
 
-//   const uneAgence = await allAgenceMaisonbyId(route.params.id)
+  const uneAgence = await allAgenceMaisonbyId(route.params.id)
 </script>
 <template>
   <div>
     <h1 class="text-xl">Une agence</h1>
-    <!-- <AgenceCard v-bind="uneAgence"/> -->
+    <AgenceCard class="relative" v-bind="uneAgence"/>
   </div>
 </template>

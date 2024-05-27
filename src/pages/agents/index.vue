@@ -8,9 +8,9 @@ const agenceListe = await allAgencesSorted();
 
 </script>
 
-<template>
+<template class="grid">
   <h1 class="text-2xl">Bonjour monde !</h1>
-  <!-- <AgenceCard v-for="uneAgence in agenceListe" :key="uneAgence.nom" v-bind="uneAgence" /> -->
+  <!-- <AgenceCard v-for="uneAgence in agenceListe" :key="uneAgence.id" v-bind="uneAgence" /> -->
   <ul>
     <li v-for="uneAgence of agenceListe" :v-key="uneAgence.id">
       <RouterLink

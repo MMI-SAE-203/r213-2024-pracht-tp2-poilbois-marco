@@ -47,7 +47,7 @@ export async function bySurface(s:number) {
 }
 
 //fonction qui prend en paramètre une surface et un prix selon la valeur d'une superficie supérieure à la surface passée en paramètre ou la surface inférieure au prix passé en paramètre
-export async function surfaceORprice(s: number, p: number) {
+export async function surfaceORprice(s:number, p:number) {
     const surfaceORpriceRecords = await pb.collection('maison').getFullList({
         filter: `surface > ${s} || prix < ${p}`,
     });
@@ -71,8 +71,8 @@ export async function allAgencesSorted() {
   return sortedAgenceRecords
 }
 
-export async function allAgenceMaisonbyId(id: string) {
-    const sortedRecordsAgence = await pb.collection('maison').getOne(id,{
+export async function allAgenceMaisonbyId(id:string) {
+    const sortedRecordsAgence = await pb.collection('agence').getOne(id,{
         expand: 'maison(agence)',
      });
      return sortedRecordsAgence;

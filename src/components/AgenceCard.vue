@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { AgenceResponse } from '@/pocketbase-types'
 
-  defineProps<AgenceResponse>()
+  const props = defineProps<AgenceResponse>()
 </script>
 <template>
     <div class="w-[352px] h-[168px]">
